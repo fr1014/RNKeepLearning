@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.fr1014.keeplearning">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--    设置调试 的权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <application
+        android:name="com.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KeepLearning"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="28">
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <activity
+            android:name="com.fr1014.rn.ReactNativeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_rn"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.fr1014.activity.startmode.BStartModeActivity" />
+        <activity android:name="com.fr1014.activity.startmode.AStartModeActivity" />
+        <activity
+            android:name="com.fr1014.activity.AboutActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_about"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.mixscroll.ScrollMixActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_scroll_mix"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.webview.WebHolderActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:path="@string/path_activity_web_container"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.webview.WebActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_web"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.cursorverify.CursorVerifyActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_cursor_verify"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.ClipChildrenActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_clip_children"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.recyclerview.RecyclerviewHoverActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_recyclerview_hover"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.fragment.FragmentLearningActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_fragment_learning"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.flow.FlowActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_flow"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.http.HttpActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_http"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.workmanager.WorkManagerActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_work_manager"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.coroutine.Coroutine2Activity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_Coroutine2"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.generic.GenericActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_generic"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.reboundlayout.ReboundViewActivity"
+            android:exported="true"
+            android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_rebound"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.coroutine.CoroutineActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_coroutine"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.event.EventActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_event"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.draw.DrawActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_draw"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.fr1014.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:path="@string/path_activity_main"
+                    android:scheme="@string/app_scheme" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

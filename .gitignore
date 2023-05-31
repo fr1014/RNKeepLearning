@@ -1,0 +1,7 @@
+# Project exclude paths
+/node_modules/
+/shelf/
+/workspace.xml
+/android/.gradle/
+/android/.idea/modules/
+/android/.idea/libraries/
