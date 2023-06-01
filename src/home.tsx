@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+    SafeAreaView,
+    SectionList,
     StyleSheet,
     Text,
     View
@@ -8,14 +10,39 @@ import {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
     },
-    hello: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10
-    }
+    sectionList: {
+      paddingTop: 20,
+    },
+    sectionHeader: {
+        paddingTop: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 2,
+        fontSize: 14,
+        fontWeight: 'bold',
+        backgroundColor: 'rgba(247,247,247,1.0)',
+    },
+    item: {
+        backgroundColor: "#f9c2ff",
+        padding: 20,
+        marginVertical: 8
+    },
+    title: {
+        fontSize: 24
+    },
 });
+
+const DATA = [
+    {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+    {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+]
+
+const Item = ({title}) => (
+    <View style={styles.item}>
+        <Text style={styles.title}>{title}</Text>
+    </View>
+)
 
 interface Props {
 
@@ -28,9 +55,14 @@ interface State {
 export class HelloWorld extends React.Component<Props, State> {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.hello}>Hello, World</Text>
-            </View>
+            <SafeAreaView style={styles.container}>
+                <SectionList style={styles.sectionList}
+                    sections={DATA}
+                    renderItem={({item}) => <Item title={item}/>}
+                    renderSectionHeader={({section}) => <Text style={styles.sectionHeader}>{section.title}</Text>}
+                    keyExtractor={(item, index) => item + index}
+                />
+            </SafeAreaView>
         );
     }
 }

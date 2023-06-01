@@ -5,3 +5,4 @@
 /android/.gradle/
 /android/.idea/modules/
 /android/.idea/libraries/
+/yarn.lock
