@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KeepLearning.iml" filepath="$PROJECT_DIR$/.idea/modules/KeepLearning.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/KeepLearning.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/KeepLearning.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2052719790/KeepLearning.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/-2052719790/KeepLearning.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2079455722/KeepLearning.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/2079455722/KeepLearning.react-native-screens.iml" />
     </modules>
   </component>
 </project>

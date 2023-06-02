@@ -6,3 +6,4 @@
 /android/.idea/modules/
 /android/.idea/libraries/
 /yarn.lock
+/yarn-error.log

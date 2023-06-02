@@ -23,7 +23,7 @@ class ReactNativeActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
     private var mReactInstanceManager: ReactInstanceManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(null)
         SoLoader.init(this, false);
         mReactRootView = ReactRootView(this);
         val packages: List<ReactPackage> = PackageList(application).packages
