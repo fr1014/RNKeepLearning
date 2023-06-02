@@ -12,6 +12,9 @@ interface State {
 
 export class HomeScreen extends React.Component<Props, State> {
     render() {
+        React.useEffect(() => {
+
+        })
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>Home Screen</Text>

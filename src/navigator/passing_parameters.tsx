@@ -28,7 +28,11 @@ export class PassingParameters extends React.Component<Props, State> {
                            onChangeText={text => {
                                this.setState({postText: text})
                            }}/>
-                <Button title="Done" onPress={() => this.props.navigation.navigate()}/>
+                <Button title="Done" onPress={() => this.props.navigation.navigate({
+                    name: 'Home',
+                    params: { post: this.state.postText },
+                    merge: true,
+                })}/>
             </View>
         );
     }
