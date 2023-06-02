@@ -2,7 +2,8 @@ import * as React from "react";
 import {Button, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 interface Props {
-    navigation: any
+    navigation: any,
+    route: any,
 }
 
 interface State {
@@ -12,9 +13,12 @@ interface State {
 export class DetailsScreen extends React.Component<Props, State> {
     render() {
         const navigation = this.props.navigation
+        const params = this.props.route.params
         return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <View style={styles.container}>
                 <Text>Details Screen</Text>
+                <Text>{params.itemId}</Text>
+                <Text>{params.otherParam}</Text>
                 <Text>
                     - navigation.navigate('RouteName')如果它不在堆栈中，则将新路由推送到堆栈导航器，否则跳转到该Screen。 {'\n'}
                     - 调用navigation.push('RouteName')任意多次，它会继续推送路由。{'\n'}
@@ -26,7 +30,7 @@ export class DetailsScreen extends React.Component<Props, State> {
                     // onPress={() => this.props.navigation.navigate('Details')}
                                   onPress={() => navigation.push('Details')}
                 >
-                    <Text style={styles.button_text}>push: Go to Details... again</Text>
+                    <Text style={styles.button_text}>push: Go to Details again</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
                     <Text style={styles.button_text}>goBack: Go back</Text>
@@ -40,12 +44,23 @@ export class DetailsScreen extends React.Component<Props, State> {
                 >
                     <Text style={styles.button_text}>popToTop: Go back to first screen in stack</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.setParams({
+                    itemId: 666666,
+                    otherParam: '我是更新后的参数'
+                })}>
+                    <Text style={styles.button_text}>setParams: 更新传递参数</Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    },
     button: {
         padding: 10,
         backgroundColor: "#4497f5",

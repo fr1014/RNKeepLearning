@@ -22,7 +22,7 @@ export class MyApp extends React.Component<Props, State> {
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
                     <Stack.Screen name="Home" component={HomeScreen} options={{title: 'options: OverView'}}/>
-                    <Stack.Screen name="Details" component={DetailsScreen}/>
+                    <Stack.Screen name="Details" component={DetailsScreen} initialParams={{itemId: 666, otherParam: '我是默认参数'}}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );
