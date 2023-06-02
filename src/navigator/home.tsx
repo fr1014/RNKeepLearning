@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Button, Text, View} from "react-native";
+import {PassingParameters} from "./passing_parameters";
 
 interface Props {
     navigation: any
@@ -19,6 +20,8 @@ export class HomeScreen extends React.Component<Props, State> {
                             itemId: 86,
                             otherParam: 'anything you want here',
                         })}/>
+                <Button title='Go To PassingParameters'
+                        onPress={()=> this.props.navigation.navigate('PassingParameters')}/>
             </View>
         );
     }
