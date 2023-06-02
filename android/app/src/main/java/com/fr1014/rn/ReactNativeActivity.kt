@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
@@ -70,5 +71,37 @@ class ReactNativeActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     fun getModuleName(): String {
         return intent.data?.getQueryParameter(MODULE_NAME) ?: "MyReactNativeApp"
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mReactInstanceManager?.onHostPause(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mReactInstanceManager?.onHostResume(this, this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mReactInstanceManager?.onHostDestroy(this)
+        mReactRootView?.unmountReactApplication()
+    }
+
+    override fun onBackPressed() {
+        if (mReactInstanceManager != null) {
+            mReactInstanceManager!!.onBackPressed()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_MENU && mReactInstanceManager != null) {
+            mReactInstanceManager!!.showDevOptionsDialog()
+            return true
+        }
+        return super.onKeyUp(keyCode, event)
     }
 }
