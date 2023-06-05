@@ -29,20 +29,23 @@ export class HomeScreen extends React.Component<Props, State> {
     }
 
     render() {
-
+        const navigation = this.props.navigation
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.state.title}</Text>
                 <TouchableOpacity style={styles.button}
-                        onPress={() => this.props.navigation.navigate('Details', {
+                        onPress={() => navigation.navigate('Details', {
                             itemId: 86,
                             otherParam: 'anything you want here',
                         })}>
                     <Text style={styles.button_text}>Go to Details</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}
-                                  onPress={()=> this.props.navigation.navigate('PassingParameters')}>
+                                  onPress={()=> navigation.navigate('PassingParameters')}>
                     <Text style={styles.button_text}>Go To PassingParameters</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CustomTitle')}>
+                    <Text style={styles.button_text}>Custom Title</Text>
                 </TouchableOpacity>
             </View>
         );

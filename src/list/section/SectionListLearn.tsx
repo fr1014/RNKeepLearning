@@ -52,7 +52,7 @@ interface State {
 
 }
 
-export class HelloWorld extends React.Component<Props, State> {
+export class SectionListLearn extends React.Component<Props, State> {
     render() {
         return (
             <SafeAreaView style={styles.container}>
