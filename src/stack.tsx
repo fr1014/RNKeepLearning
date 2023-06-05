@@ -3,11 +3,11 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {HomeScreen} from "./navigator/home";
-import {DetailsScreen} from "./navigator/details";
-import {PassingParameters} from "./navigator/passing_parameters";
-import {CustomTitle} from "./navigator/custom_title";
-import {LogoTitle} from "./navigator/logo_title";
+import {HomeScreen} from "./navigator/HomeScreen";
+import {DetailsScreen} from "./navigator/DetailsScreen";
+import {PassingParameters} from "./navigator/PassingParameters";
+import {CustomTitle} from "./navigator/CustomTitle";
+import {LogoTitle} from "./navigator/LogoTitle";
 import {DocHomeScreen} from "./doc";
 import {Home} from "./home/Home";
 import {ReactDoc} from "./doc/ReactDoc";

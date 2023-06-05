@@ -1,6 +1,6 @@
 import * as React from "react";
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {PassingParameters} from "./passing_parameters";
+import {PassingParameters} from "./PassingParameters";
 
 interface Props {
     navigation: any,
