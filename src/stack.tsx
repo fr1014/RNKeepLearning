@@ -8,6 +8,9 @@ import {DetailsScreen} from "./navigator/details";
 import {PassingParameters} from "./navigator/passing_parameters";
 import {CustomTitle} from "./navigator/custom_title";
 import {LogoTitle} from "./navigator/logo_title";
+import {DocHomeScreen} from "./doc";
+import {Home} from "./home/Home";
+import {ReactDoc} from "./doc/ReactDoc";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,13 +27,16 @@ export class MyApp extends React.Component<Props, State> {
         return (
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
+                    <Stack.Screen name="Home" component={Home}/>
+                    <Stack.Screen name="Home_Navigation" component={HomeScreen} options={{headerShown: false}}/>
                     <Stack.Screen name="Details" component={DetailsScreen}
                                   initialParams={{itemId: 666, otherParam: '我是默认参数'}}/>
                     <Stack.Screen name="PassingParameters" component={PassingParameters}/>
                     <Stack.Screen name="CustomTitle"
                                   component={CustomTitle}
                                   options={{headerTitle: (props) => <LogoTitle/>}}/>
+                    <Stack.Screen name="Home_Doc" component={DocHomeScreen}/>
+                    <Stack.Screen name="ReactDoc" component={ReactDoc}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );
