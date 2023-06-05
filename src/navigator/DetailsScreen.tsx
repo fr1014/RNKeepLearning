@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 interface Props {
     navigation: any,
@@ -12,8 +12,8 @@ interface State {
 
 export class DetailsScreen extends React.Component<Props, State> {
     render() {
-        const navigation = this.props.navigation
-        const params = this.props.route.params
+        const {navigation, route} = this.props
+        const params = route.params
         return (
             <View style={styles.container}>
                 <Text>Details Screen</Text>

@@ -29,14 +29,16 @@ export class HomeScreen extends React.Component<Props, State> {
     }
 
     render() {
-        const navigation = this.props.navigation
+        // const navigation = this.props.navigation可以简写为const {navigation} = this.props
+        // const navigation = this.props.navigation
+        const {navigation} = this.props
         return (
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <Text>{this.state.title}</Text>
                 <TouchableOpacity style={styles.button}
                         onPress={() => navigation.navigate('Details', {
                             itemId: 86,
-                            otherParam: 'anything you want here',
+                            otherParam: '我是传递过来的数据',
                         })}>
                     <Text style={styles.button_text}>Go to Details</Text>
                 </TouchableOpacity>
