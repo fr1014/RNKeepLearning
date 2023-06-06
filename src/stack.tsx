@@ -11,6 +11,8 @@ import {LogoTitle} from "./navigator/LogoTitle";
 import {DocHomeScreen} from "./doc";
 import {Home} from "./home/Home";
 import {ReactDoc} from "./doc/ReactDoc";
+import {WanHome} from "./wanandroid/WanHome";
+import {WanWebViewPage} from "./wanandroid/WanWebViewPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,15 +30,27 @@ export class MyApp extends React.Component<Props, State> {
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
                     <Stack.Screen name="Home" component={Home}/>
+
+                    {/*首页入口*/}
                     <Stack.Screen name="Home_Navigation" component={HomeScreen} options={{headerShown: false}}/>
+                    <Stack.Screen name="Home_Doc" component={DocHomeScreen}/>
+                    {/*首页入口*/}
+
+                    {/*Navigation*/}
                     <Stack.Screen name="Details" component={DetailsScreen}
                                   initialParams={{itemId: 666, otherParam: '我是默认参数'}}/>
                     <Stack.Screen name="PassingParameters" component={PassingParameters}/>
                     <Stack.Screen name="CustomTitle"
                                   component={CustomTitle}
                                   options={{headerTitle: (props) => <LogoTitle/>}}/>
-                    <Stack.Screen name="Home_Doc" component={DocHomeScreen}/>
+                    {/*Navigation*/}
+
+                    {/*文档*/}
                     <Stack.Screen name="ReactDoc" component={ReactDoc}/>
+                    {/*文档*/}
+
+                    <Stack.Screen name="WanHome" component={WanHome}/>
+                    <Stack.Screen name="WanWebViewPage" component={WanWebViewPage} options={{headerShown: false}}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );
