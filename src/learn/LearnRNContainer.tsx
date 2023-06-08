@@ -11,8 +11,6 @@ import {LogoTitle} from "./navigator/LogoTitle";
 import {DocHomeScreen} from "./doc";
 import {Home} from "./home/Home";
 import {ReactDoc} from "./doc/ReactDoc";
-import {WanHome} from "../wanandroid/WanHome";
-import {WanWebViewPage} from "../wanandroid/WanWebViewPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +22,7 @@ interface State {
 
 }
 
-export class LearnRN extends React.Component<Props, State> {
+export class LearnRNContainer extends React.Component<Props, State> {
     render() {
         return (
             <NavigationContainer>
@@ -49,8 +47,6 @@ export class LearnRN extends React.Component<Props, State> {
                     <Stack.Screen name="ReactDoc" component={ReactDoc}/>
                     {/*文档*/}
 
-                    <Stack.Screen name="WanHome" component={WanHome}/>
-                    <Stack.Screen name="WanWebViewPage" component={WanWebViewPage} options={{headerShown: false}}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );

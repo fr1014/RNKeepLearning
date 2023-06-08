@@ -1,15 +1,15 @@
 import {
   AppRegistry,
 } from 'react-native';
-import {LearnRN} from "./src/learn/LearnRN";
-import {WanHome} from "./src/wanandroid/WanHome";
+import {LearnRNContainer} from "./src/learn/LearnRNContainer";
+import {WanAndroidContainer} from "./src/wanandroid/WanAndroidContainer";
 
 AppRegistry.registerComponent(
   'LearnRNPage',
-  () => LearnRN
+  () => LearnRNContainer
 );
 
 AppRegistry.registerComponent(
     'WanAndroidPage',
-    () => WanHome
+    () => WanAndroidContainer
 )
