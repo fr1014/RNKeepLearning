@@ -31,6 +31,7 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
             add(SchemePortInfo("支持竖向滑动、横向滑动的控件", getString(R.string.port_activity_scroll_mix)))
             add(SchemePortInfo("Activity相关知识点", getString(R.string.port_activity_about)))
             add(SchemePortInfo("React Native", getString(R.string.port_activity_rn)))
+            add(SchemePortInfo("WanAndroid", getString(R.string.port_activity_rn_wan_android)))
         }
     }
 

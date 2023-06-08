@@ -17,7 +17,7 @@ import com.fr1014.keeplearning.BuildConfig
 
 
 private const val OVERLAY_PERMISSION_REQ_CODE = 1 // 任写一个值
-private const val MODULE_NAME = "module_name"
+const val MODULE_NAME = "module_name"
 
 class ReactNativeActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
     private var mReactRootView: ReactRootView? = null

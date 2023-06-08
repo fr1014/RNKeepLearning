@@ -21,6 +21,7 @@
     <string name="port_activity_scroll_mix">15</string>
     <string name="port_activity_about">16</string>
     <string name="port_activity_rn">17</string>
+    <string name="port_activity_rn_wan_android">18</string>
     <!--scheme port-->
 
     <!--scheme path-->

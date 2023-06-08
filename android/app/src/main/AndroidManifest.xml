@@ -35,6 +35,11 @@
                     android:host="@string/app_host"
                     android:port="@string/port_activity_rn"
                     android:scheme="@string/app_scheme" />
+
+                <data
+                    android:host="@string/app_host"
+                    android:port="@string/port_activity_rn_wan_android"
+                    android:scheme="@string/app_scheme" />
             </intent-filter>
         </activity>
         <activity android:name="com.fr1014.activity.startmode.BStartModeActivity" />

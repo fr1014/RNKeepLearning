@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fr1014.bean.SchemePortInfo
 import com.fr1014.keeplearning.databinding.ItemContentViewBinding
+import com.fr1014.rn.MODULE_NAME
 
 /**
  * Create by fanrui07
@@ -35,7 +36,16 @@ class MainAdapter(private val tvContentList: List<SchemePortInfo>) :
                 val intent = Intent()
                 val host = context.getString(R.string.app_host)
                 val scheme = context.getString(R.string.app_scheme);
-                intent.data = Uri.parse("$scheme://$host:${schemePortInfo.port}")
+                val uriString = "$scheme://$host:${schemePortInfo.port}"
+                when (schemePortInfo.port) {
+                    context.getString(R.string.port_activity_rn_wan_android) -> {
+                        val moduleName = "WanAndroidPage"
+                        intent.data = Uri.parse("${uriString}?${MODULE_NAME}=${moduleName}")
+                    }
+                    else -> {
+                        intent.data = Uri.parse(uriString)
+                    }
+                }
                 context.startActivity(intent)
             }
         }

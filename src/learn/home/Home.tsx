@@ -24,10 +24,6 @@ export class Home extends React.Component<Props, State> {
                                   onPress={() => navigation.navigate('Home_Doc')}>
                     <Text style={styles.button_text}>Doc About</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}
-                                  onPress={() => navigation.navigate('WanHome')}>
-                    <Text style={styles.button_text}>WanHome</Text>
-                </TouchableOpacity>
             </View>
         );
     }
