@@ -1,10 +1,10 @@
 import {
   AppRegistry,
 } from 'react-native';
-import {MyApp} from "./src/stack";
+import {LearnRN} from "./src/learn/stack";
 
 
 AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => MyApp
+  'LearnRNPage',
+  () => LearnRN
 );

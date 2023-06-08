@@ -70,7 +70,7 @@ class ReactNativeActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
     }
 
     fun getModuleName(): String {
-        return intent.data?.getQueryParameter(MODULE_NAME) ?: "MyReactNativeApp"
+        return intent.data?.getQueryParameter(MODULE_NAME) ?: "LearnRNPage"
     }
 
     override fun onPause() {

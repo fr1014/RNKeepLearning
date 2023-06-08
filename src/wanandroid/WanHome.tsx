@@ -55,7 +55,7 @@ export class WanHome extends React.Component<Props, State> {
     renderItem({item, index}) {
         return (
             <TouchableOpacity
-                style={index % 2 == 0 ? styles.container_item_1 : styles.container_item_2 }
+                style={index % 2 == 0 ? styles.container_item_1 : styles.container_item_2}
                 onPress={() => this.props.navigation.navigate('WanWebViewPage', {
                     link: item.link,
                 })}>
@@ -68,6 +68,14 @@ export class WanHome extends React.Component<Props, State> {
                     <Text>{item.superChapterName}-{item.chapterName}</Text>
                 </View>
             </TouchableOpacity>
+        )
+    }
+
+    renderFooter() {
+        return (
+            <View style={styles.footerContainer}>
+                <Text style={styles.footer_text}>加载中...</Text>
+            </View>
         )
     }
 
@@ -84,6 +92,7 @@ export class WanHome extends React.Component<Props, State> {
                     style={styles.list}
                     keyExtractor={item => item.id}
                     onEndReached={() => this.fetchData(this.state.page)}
+                    ListFooterComponent={() => this.renderFooter()}
                 />
             </SafeAreaView>
         );
@@ -120,5 +129,10 @@ const styles = StyleSheet.create({
         color: "#222222",
         fontSize: 14,
         paddingVertical: 4,
+    },
+    footerContainer: {
+        height: 80,
+    },
+    footer_text: {
     }
 })
