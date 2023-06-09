@@ -19,7 +19,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ProcessLifecycleOwner.get().lifecycle.addObserver(checkObserver)
+//        ProcessLifecycleOwner.get().lifecycle.addObserver(checkObserver)
         val builder = createRetrofitBuilder()
         WanAndroidApi.init(builder)
     }
