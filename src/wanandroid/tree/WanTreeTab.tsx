@@ -12,6 +12,7 @@ type TabInfo = {
 const Tab = createMaterialTopTabNavigator();
 
 interface Props {
+    navigation: any,
     route: any
 }
 
@@ -40,7 +41,7 @@ export class WanTreeTab extends Component<Props, State> {
             <Tab.Screen
                 key={index}
                 name={tab.name}
-                children={() => <WanTreeDetail id={tab.id}/>}
+                children={() => <WanTreeDetail id={tab.id} navigation={this.props.navigation}/>}
             />
         ));
     }

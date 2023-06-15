@@ -31,7 +31,7 @@ export class WanHome extends React.Component<Props, State> {
         this.fetchData(this.state.page)
     }
 
-    fetchData(page) {
+    fetchData(page: number) {
         const REQUEST_URL = `https://www.wanandroid.com/article/list/${page}/json`
         fetch(REQUEST_URL)
             .then(response => response.json())
@@ -96,8 +96,6 @@ export class WanHome extends React.Component<Props, State> {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
     },
     list: {
         backgroundColor: "#F5FCFF"
