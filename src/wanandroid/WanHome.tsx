@@ -1,5 +1,6 @@
 import React from "react";
 import {FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {ItemInfoArticle} from "./common/ItemInfoArticle";
 
 interface Props {
     navigation: any,
@@ -24,7 +25,6 @@ export class WanHome extends React.Component<Props, State> {
         // 在ES6中，如果在自定义的函数里使用了this关键字，则需要对其进行“绑定”操作，否则this的指向会变为空
         // 像下面这行代码一样，在constructor中使用bind是其中一种做法（还有一些其他做法，如使用箭头函数等）
         this.fetchData = this.fetchData.bind(this)
-        this.renderItem = this.renderItem.bind(this)
     }
 
     componentDidMount() {
@@ -53,25 +53,6 @@ export class WanHome extends React.Component<Props, State> {
         );
     }
 
-    renderItem({item, index}) {
-        return (
-            <TouchableOpacity
-                style={index % 2 == 0 ? styles.container_item_1 : styles.container_item_2}
-                onPress={() => this.props.navigation.navigate('WanWebViewPage', {
-                    link: item.link,
-                })}>
-                <View style={styles.item_top_bottom}>
-                    <Text>{item.shareUser}</Text>
-                    <Text>{item.niceShareDate}</Text>
-                </View>
-                <Text style={styles.item_title}>{item.title}</Text>
-                <View style={styles.item_top_bottom}>
-                    <Text>{item.superChapterName}-{item.chapterName}</Text>
-                </View>
-            </TouchableOpacity>
-        )
-    }
-
     renderFooter() {
         return (
             <View style={styles.footerContainer}>
@@ -84,12 +65,24 @@ export class WanHome extends React.Component<Props, State> {
         if (!this.state.loaded) {
             return this.renderLoadingView()
         }
+        const {navigation} = this.props
         return (
             <SafeAreaView style={styles.container}>
                 <StatusBar backgroundColor="#00BFFF" barStyle="dark-content"/>
                 <FlatList
                     data={this.state.data}
-                    renderItem={this.renderItem}
+                    renderItem={({item, index}) =>
+                        <ItemInfoArticle
+                            navigation={navigation}
+                            index={index}
+                            shareUser={item.shareUser}
+                            niceShareDate={item.niceShareDate}
+                            superChapterName={item.superChapterName}
+                            chapterName={item.chapterName}
+                            title={item.title}
+                            link={item.link}
+                        />
+                    }
                     style={styles.list}
                     keyExtractor={item => item.id}
                     onEndReached={() => this.fetchData(this.state.page)}
@@ -106,33 +99,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-    container_item_1: {
-        flex: 1,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-        backgroundColor: "#ffffff",
-    },
-    container_item_2: {
-        flex: 1,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-        backgroundColor: "#f2f2f2",
-    },
     list: {
         backgroundColor: "#F5FCFF"
-    },
-    item_top_bottom: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-    },
-    item_title: {
-        color: "#222222",
-        fontSize: 14,
-        paddingVertical: 4,
     },
     footerContainer: {
         height: 80,
     },
-    footer_text: {
-    }
+    footer_text: {}
 })
