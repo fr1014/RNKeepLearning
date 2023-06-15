@@ -5,6 +5,7 @@ interface Props {
     navigation: any,
 }
 
+//首页 - "体系"
 export class WanTree extends React.Component<Props, any> {
 
     constructor(props: Props) {
@@ -32,11 +33,15 @@ export class WanTree extends React.Component<Props, any> {
             })
     }
 
-    renderItem({item}) {
+    renderItem(item, section) {
         return (
             <TouchableOpacity
                 style={styles.container_item}
-                onPress={() => this.props.navigation.navigate('WanTreeTab')}
+                onPress={() => {
+                    this.props.navigation.navigate('WanTreeTab', {
+                        data: section.data
+                    })
+                }}
             >
                 <Text style={styles.item}>{item.name}</Text>
             </TouchableOpacity>
@@ -61,10 +66,9 @@ export class WanTree extends React.Component<Props, any> {
             <SafeAreaView style={styles.container}>
                 <SectionList
                     sections={sections}
-                    numColumns={2}
                     keyExtractor={(item) => item.id}
                     renderSectionHeader={this.renderItemHeader}
-                    renderItem={this.renderItem}
+                    renderItem={({item, section}) => this.renderItem(item, section)}
                     stickySectionHeadersEnabled={true}
                 />
             </SafeAreaView>

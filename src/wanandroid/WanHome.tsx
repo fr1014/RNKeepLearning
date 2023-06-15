@@ -11,6 +11,7 @@ interface State {
     loaded: boolean,
 }
 
+//首页 - "首页"
 export class WanHome extends React.Component<Props, State> {
 
     constructor(props: Props) {
@@ -85,7 +86,7 @@ export class WanHome extends React.Component<Props, State> {
         }
         return (
             <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor="white" barStyle="dark-content"/>
+                <StatusBar backgroundColor="#00BFFF" barStyle="dark-content"/>
                 <FlatList
                     data={this.state.data}
                     renderItem={this.renderItem}
