@@ -1,6 +1,6 @@
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
 import {FlatListArticle} from "./common/FlatListArticle";
+import {LoadingView} from "./common/LoadingView";
 
 interface Props {
     navigation: any,
@@ -46,17 +46,9 @@ export class WanHome extends React.Component<Props, State> {
             })
     }
 
-    renderLoadingView() {
-        return (
-            <View style={styles.container}>
-                <Text>Loading data...</Text>
-            </View>
-        );
-    }
-
     render() {
         if (!this.state.loaded) {
-            return this.renderLoadingView()
+            return (<LoadingView/>);
         }
         const {navigation} = this.props
         const {data} = this.state
@@ -69,9 +61,3 @@ export class WanHome extends React.Component<Props, State> {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-})
