@@ -8,6 +8,7 @@ import {WanTree} from "./tree/WanTree";
 import {WanTreeTab} from "./tree/WanTreeTab";
 import {WanTreeDetail} from "./tree/WanTreeDetail";
 import {Image, StyleSheet} from "react-native";
+import {WanMine} from "./mine/WanMine";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,7 +50,7 @@ function MyTabs() {
         })}>
             <Tab.Screen name="首页" component={WanHome} options={{headerShown: false}}/>
             <Tab.Screen name="体系" component={WanTree} options={{headerShown: false}}/>
-            <Tab.Screen name="我的" component={WanHome} options={{headerShown: false}}/>
+            <Tab.Screen name="我的" component={WanMine} options={{headerShown: false}}/>
         </Tab.Navigator>
     );
 }
