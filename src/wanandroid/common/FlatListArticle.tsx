@@ -2,10 +2,15 @@ import React from "react";
 import {FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View} from "react-native";
 import {ItemInfoArticle} from "./ItemInfoArticle";
 
+export type DataInfo = {
+    data: [],
+    over: boolean,
+}
+
 interface Props {
     navigation: any,
     fetchDate: () => void,
-    data: [],
+    dataInfo: DataInfo,
 }
 
 interface State {
@@ -18,21 +23,29 @@ export class FlatListArticle extends React.Component<Props, State> {
         super(props);
     }
 
-    renderFooter() {
-        return (
-            <View style={styles.footerContainer}>
-                <Text style={styles.footer_text}>加载中...</Text>
-            </View>
-        )
+    renderFooter(over: boolean) {
+        if (over) {
+            return (
+                <View style={styles.footerContainer}>
+                    <Text style={styles.footer_text}>～人家也是有底线的～</Text>
+                </View>
+            )
+        } else {
+            return (
+                <View style={styles.footerContainer}>
+                    <Text style={styles.footer_text}>加载中...</Text>
+                </View>
+            )
+        }
     }
 
     render() {
-        const {navigation, data} = this.props
+        const {navigation, dataInfo} = this.props
         return (
             <SafeAreaView style={styles.container}>
                 <StatusBar backgroundColor="#00BFFF" barStyle="dark-content"/>
                 <FlatList
-                    data={data}
+                    data={dataInfo.data}
                     renderItem={({item, index}) =>
                         <ItemInfoArticle
                             navigation={navigation}
@@ -48,7 +61,7 @@ export class FlatListArticle extends React.Component<Props, State> {
                     style={styles.list}
                     keyExtractor={item => item.id}
                     onEndReached={() => this.props.fetchDate()}
-                    ListFooterComponent={this.renderFooter()}
+                    ListFooterComponent={this.renderFooter(dataInfo.over)}
                 />
             </SafeAreaView>
         );
@@ -66,7 +79,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        height: 80,
+        height: 60
     },
     footer_text: {}
 })
