@@ -7,6 +7,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {WanTree} from "./tree/WanTree";
 import {WanTreeTab} from "./tree/WanTreeTab";
 import {WanTreeDetail} from "./tree/WanTreeDetail";
+import {Image, StyleSheet} from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -24,7 +25,28 @@ function MyStack() {
 
 function MyTabs() {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+                let icon
+                if (route.name == "首页") {
+                    icon = focused
+                        ? <Image source={require('../assets/pic/selected_plane.png')} style={styles.bottom_tab_icon}/>
+                        :
+                        <Image source={require('../assets/pic/unselect_plane.png.png')} style={styles.bottom_tab_icon}/>
+                } else if (route.name == "体系") {
+                    icon = focused
+                        ? <Image source={require('../assets/pic/selected_small_bike.png')}
+                                 style={styles.bottom_tab_icon}/>
+                        : <Image source={require('../assets/pic/unselect_small_bike.png')}
+                                 style={styles.bottom_tab_icon}/>
+                } else if (route.name == "我的") {
+                    icon = focused
+                        ? <Image source={require('../assets/pic/selected_ship.png')} style={styles.bottom_tab_icon}/>
+                        : <Image source={require('../assets/pic/unselect_ship.png')} style={styles.bottom_tab_icon}/>
+                }
+                return icon
+            }
+        })}>
             <Tab.Screen name="首页" component={WanHome} options={{headerShown: false}}/>
             <Tab.Screen name="体系" component={WanTree} options={{headerShown: false}}/>
             <Tab.Screen name="我的" component={WanHome} options={{headerShown: false}}/>
@@ -41,3 +63,11 @@ export class WanAndroidContainer extends React.Component<any, any> {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    bottom_tab_icon: {
+        width: 25,
+        height: 25,
+        resizeMode: "contain",
+    },
+})
