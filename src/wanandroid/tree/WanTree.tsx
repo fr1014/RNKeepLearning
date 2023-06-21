@@ -34,12 +34,14 @@ export class WanTree extends React.Component<Props, any> {
     }
 
     renderItem(item, section) {
+        const {navigation} = this.props
         return (
             <TouchableOpacity
                 style={styles.container_item}
                 onPress={() => {
-                    this.props.navigation.navigate('WanTreeTab', {
-                        data: section.data
+                    navigation.navigate('WanTreeTab', {
+                        data: section.data,
+                        title: section.title
                     })
                 }}
             >

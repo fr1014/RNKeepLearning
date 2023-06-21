@@ -9,6 +9,7 @@ import {WanTreeTab} from "./tree/WanTreeTab";
 import {WanTreeDetail} from "./tree/WanTreeDetail";
 import {Image, StyleSheet} from "react-native";
 import {WanMine} from "./mine/WanMine";
+import {NavigationTitle} from "./common/NavigationTitle";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -18,7 +19,21 @@ function MyStack() {
         <Stack.Navigator initialRouteName="BottomTabs">
             <Stack.Screen name="BottomTabs" component={MyTabs} options={{headerShown: false}}/>
             <Stack.Screen name="WanWebViewPage" component={WanWebViewPage} options={{headerShown: false}}/>
-            <Stack.Screen name="WanTreeTab" component={WanTreeTab} options={{headerShown: false}}/>
+            <Stack.Screen
+                name="WanTreeTab"
+                component={WanTreeTab}
+                options={({route}) => ({
+                    title: route.name,
+                    // header: () => (
+                    //     <NavigationTitle title="首页"/>
+                    // ), //自定义头
+                    headerShown: true, //是否开启导航栏显示，true: 显示
+                    headerStyle: styles.head_style, //外部容器style
+                    headerTitleStyle: styles.header_title_style, //内部文案style
+                    headerTitleAlign: 'center', // 设置标题居中对齐
+                    headerTintColor: '#FFFFFF', //导航栏按钮的颜色
+                })}
+            />
             <Stack.Screen name="WanTreeDetail" component={WanTreeDetail}/>
         </Stack.Navigator>
     );
@@ -48,9 +63,35 @@ function MyTabs() {
                 return icon
             }
         })}>
-            <Tab.Screen name="首页" component={WanHome} options={{headerShown: false}}/>
-            <Tab.Screen name="体系" component={WanTree} options={{headerShown: false}}/>
-            <Tab.Screen name="我的" component={WanMine} options={{headerShown: false}}/>
+            <Tab.Screen
+                name="首页"
+                component={WanHome}
+                options={{
+                    header: () => (
+                        <NavigationTitle title="首页"/>
+                    ), //自定义头
+                }}
+            />
+            <Tab.Screen
+                name="体系"
+                component={WanTree}
+                options={{
+                    headerShown: true,
+                    headerStyle: styles.head_style,
+                    headerTitleStyle: styles.header_title_style,
+                    headerTitleAlign: 'center', // 设置标题居中对齐
+                }}
+            />
+            <Tab.Screen
+                name="我的"
+                component={WanMine}
+                options={{
+                    headerShown: true,
+                    headerStyle: styles.head_style,
+                    headerTitleStyle: styles.header_title_style,
+                    headerTitleAlign: 'center', // 设置标题居中对齐
+                }}
+            />
         </Tab.Navigator>
     );
 }
@@ -70,5 +111,13 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25,
         resizeMode: "contain",
+    },
+    head_style: {
+        backgroundColor: "#00BFFF",
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    header_title_style: {
+        color: 'white',
     },
 })

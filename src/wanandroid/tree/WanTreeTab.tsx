@@ -25,14 +25,15 @@ export class WanTreeTab extends Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        const {params} = this.props.route
-        const tabs = params.data.map((item) => ({
+        const {navigation, route} = this.props
+        const tabs = route.params.data.map((item) => ({
             name: item.name,
             id: item.id,
         }))
         this.state = {
             tabs: tabs
         }
+        navigation.setOptions({title: route.params.title})
     }
 
     generateRoutes() {
